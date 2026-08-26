@@ -44,6 +44,7 @@ vim.keymap.set("n", "<leader>fgw", fzf.grep_cword, { desc = "[F]ZF [G]rep [W]ord
 vim.keymap.set("n", "<leader>fgW", fzf.grep_cWORD, { desc = "[F]ZF [G]rep [W]ORD under cursor" })
 
 vim.api.nvim_create_autocmd("LspAttach", {
+	desc = "Enable LSP pickers for FZF",
 	group = fzf_group,
 	callback = function(event)
 		local buf = event.buf

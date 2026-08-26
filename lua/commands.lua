@@ -1,9 +1,9 @@
-local user_group = vim.api.nvim_create_augroup("CommandsGroup", { clear = true })
+local commands_group = vim.api.nvim_create_augroup("CommandsGroup", { clear = true })
 
 -- Auto return to last cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
-	group = user_group,
 	desc = "Restore last cursor position",
+	group = commands_group,
 	callback = function()
 		if vim.o.diff then -- except in diff mode
 			return
@@ -23,7 +23,8 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- wrap, line-break and spellcheck on markdown and text files
 vim.api.nvim_create_autocmd("FileType", {
-	group = user_group,
+	desc = "Enable text wrapping, line breaking and spell check on text files",
+	group = commands_group,
 	pattern = { "tex", "markdown", "text", "gitcommit" },
 	callback = function()
 		vim.opt_local.wrap = true

@@ -6,6 +6,8 @@ vim.pack.add({
 	},
 })
 
+local trees_group = vim.api.nvim_create_augroup("TreesGroup", { clear = true })
+
 local treesitter = require("nvim-treesitter")
 treesitter.setup({
 	-- Directory to install parsers and queries to (prepended to `runtimepath` to have priority)
@@ -61,6 +63,8 @@ end
 
 local available_parsers = treesitter.get_available()
 vim.api.nvim_create_autocmd("FileType", {
+	desc = "Enable treesitter parsers",
+	group = treesgroup,
 	callback = function(args)
 		local buf, filetype = args.buf, args.match
 
