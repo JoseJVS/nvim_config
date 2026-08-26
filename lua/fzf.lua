@@ -17,6 +17,7 @@ vim.keymap.set("n", "<leader>fc", fzf.builtin, { desc = "[F]ZF builtin [C]ommand
 vim.keymap.set("n", "<leader>fb", fzf.buffers, { desc = "[F]ZF search open [B]uffers" })
 vim.keymap.set("n", "<leader>ft", fzf.tabs, { desc = "[F]ZF search open [T]abs" })
 vim.keymap.set("n", "<leader>ff", fzf.files, { desc = "[F]ZF search [F]iles in CWD" })
+vim.keymap.set("n", "<leader>fi", fzf.lgrep_curbuf, { desc = "[F]ZF l[I]ve grep current buffer (alt)" })
 
 vim.keymap.set("n", "<leader>fhb", fzf.history, { desc = "[F]ZF [H]istory search [B]uffers/files" })
 vim.keymap.set("n", "<leader>fhc", fzf.command_history, { desc = "[F]ZF [H]istory search [C]ommands" })
