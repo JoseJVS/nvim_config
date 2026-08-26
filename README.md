@@ -5,6 +5,7 @@ Heavily inspired by:
 * https://github.com/Sin-cy/nvim-scratch
 * https://github.com/radleylewis/nvim-lite
 
+
 ## Requirements
 * Neovim >= 0.12
 * ripgrep
@@ -12,6 +13,7 @@ Heavily inspired by:
 * fzf
 * lazygit
 * bat
+
 
 ## Installed packages
 * [which-key](https://github.com/folke/which-key.nvim)
