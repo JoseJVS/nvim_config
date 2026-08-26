@@ -45,7 +45,6 @@ vim.keymap.set("n", "<leader>sx", "<cmd>close<cr>", { desc = "[S]plits [C]lose c
 vim.keymap.set("n", "<leader><Esc>", "<cmd>qa<cr>", { desc = "Quit" })
 
 -- Native undotree
-vim.keymap.set("n", "<leader>u", function()
-	vim.cmd.packadd("nvim.undotree")
-	require("undotree").open()
-end, { desc = "Toggle Builtin Undotree" })
+vim.cmd.packadd("nvim.undotree")
+local ut = require("undotree")
+vim.keymap.set("n", "<leader>u", ut.open, { desc = "Toggle Builtin Undotree" })
