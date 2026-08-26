@@ -11,10 +11,10 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = vim.tbl_deep_extend("force", capabilities, require("mini.completion").get_lsp_capabilities())
 vim.lsp.config("*", { capabilities = capabilities })
 
-vim.keymap.set("n", "<leader>lr", function()
+vim.keymap.set("n", "<leader>lx", function()
 	vim.cmd("lsp restart")
 	vim.notify("LSP restarted", vim.log.levels.INFO)
-end, { desc = "Restart LSP" })
+end, { desc = "[L]SP [X]restart" })
 
 --  This function gets run when an LSP attaches to a particular buffer.
 --    That is to say, every time a new file is opened that is associated with
