@@ -24,7 +24,7 @@ require("nvim-tree").setup({
 	---
 })
 
-vim.keymap.set("n", "<leader>ef", api.tree.open, { desc = "[E]xplorer [F]ocus" })
+vim.keymap.set("n", "<leader>eo", api.tree.open, { desc = "[E]xplorer [O]pen" })
 vim.keymap.set("n", "<leader>et", api.tree.toggle, { desc = "[E]xplorer [T]oggle" })
 vim.keymap.set("n", "<leader>er", api.tree.reload, { desc = "[E]xplorer [R]eload" })
 vim.keymap.set("n", "<leader>ec", api.tree.collapse_all, { desc = "[E]xplorer [C]ollapse" })
