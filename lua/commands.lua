@@ -1,6 +1,6 @@
-local user_group = vim.api.nvim_create_augroup("UserGroup", { clear = true })
+local user_group = vim.api.nvim_create_augroup("CommandsGroup", { clear = true })
 
--- Auto return to last cursor possition
+-- Auto return to last cursor position
 vim.api.nvim_create_autocmd("BufReadPost", {
 	group = user_group,
 	desc = "Restore last cursor position",
@@ -21,7 +21,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 })
 
--- wrap, linebreak and spellcheck on markdown and text files
+-- wrap, line-break and spellcheck on markdown and text files
 vim.api.nvim_create_autocmd("FileType", {
 	group = user_group,
 	pattern = { "tex", "markdown", "text", "gitcommit" },
