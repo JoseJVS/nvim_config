@@ -98,7 +98,11 @@ Escape to select from detected sessions.
 				name = parse_path_sesh_name(vim.fn.getcwd())
 			end
 
-			sesh.write(name)
+            if string.match(name, "^[%w%-%._]+$") ~= nil then
+			    sesh.write(name)
+            else
+                vim.notify("Invalid session name. Should only contain '^[%w%-%._]+$'.", vim.log.levels.ERROR)
+            end
 		end
 	end
 end
