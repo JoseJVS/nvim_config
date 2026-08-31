@@ -64,7 +64,7 @@ end
 local available_parsers = treesitter.get_available()
 vim.api.nvim_create_autocmd("FileType", {
 	desc = "Enable treesitter parsers",
-	group = treesgroup,
+	group = trees_group,
 	callback = function(args)
 		local buf, filetype = args.buf, args.match
 
