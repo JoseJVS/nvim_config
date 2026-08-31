@@ -49,11 +49,39 @@ extra.setup()
 -- Mini git command integration
 require("mini.git").setup()
 
+-- Easier input plugging
+local input = require("mini.input")
+input.setup()
+
 -- Better ftFT jumping
 require("mini.jump").setup()
 
 -- Interactive jump across visible text
 require("mini.jump2d").setup()
+
+-- Simple session management
+local sesh = require("mini.sessions")
+sesh.setup()
+
+vim.keymap.set("n", "<leader>wr", function()
+	sesh.select("read")
+end, { desc = "[W]orking session [R]ead" })
+vim.keymap.set("n", "<leader>ww", function()
+	local name = vim.v["this_session"]
+	if name == nil or name == "" then
+		name = input.get({ prompt = "New session name" })
+		if name == nil or name == "" then
+			sesh.select("write")
+        else
+            sesh.write(name)
+		end
+    else
+        sesh.write()
+	end
+end, { desc = "[W]orking session [W]rite" })
+vim.keymap.set("n", "<leader>wd", function()
+	sesh.select("delete")
+end, { desc = "[W]orking session [D]elete" })
 
 -------------------------------------
 --
