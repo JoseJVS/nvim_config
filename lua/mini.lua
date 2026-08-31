@@ -61,27 +61,81 @@ require("mini.jump2d").setup()
 
 -- Simple session management
 local sesh = require("mini.sessions")
-sesh.setup()
+sesh.setup({
+	verbose = { read = true, write = true, delete = true },
+})
+
+--- @param path string
+local parse_path_sesh_name = function(path)
+	-- Substitute all path branching by dashes
+	local sname, _ = string.gsub(path, "/", "-")
+	-- Append session- prefix
+	sname = "session-" .. sname
+	return sname
+end
+
+local write_sesh = function()
+	local name = vim.v["this_session"]
+	if name ~= nil and name ~= "" then
+        -- A session is loaded
+		sesh.write()
+	else
+		name = input.get({
+			prompt = [[
+Enter new session name.
+Empty string generates CWD-based name.
+Escape to select from detected sessions.
+            ]],
+		})
+
+		if name == nil then
+            -- Case when input was escaped
+			sesh.select("write")
+		else
+            -- Case when input was entered
+			if name == "" then
+                -- Case when entered input was empty
+				name = parse_path_sesh_name(vim.fn.getcwd())
+			end
+
+			sesh.write(name)
+		end
+	end
+end
 
 vim.keymap.set("n", "<leader>wr", function()
 	sesh.select("read")
 end, { desc = "[W]orking session [R]ead" })
-vim.keymap.set("n", "<leader>ww", function()
-	local name = vim.v["this_session"]
-	if name == nil or name == "" then
-		name = input.get({ prompt = "New session name" })
-		if name == nil or name == "" then
-			sesh.select("write")
-        else
-            sesh.write(name)
-		end
-    else
-        sesh.write()
-	end
-end, { desc = "[W]orking session [W]rite" })
+vim.keymap.set("n", "<leader>ww", write_sesh, { desc = "[W]orking session [W]rite" })
 vim.keymap.set("n", "<leader>wd", function()
 	sesh.select("delete")
 end, { desc = "[W]orking session [D]elete" })
+
+local try_load_sesh = function()
+	local sname = ""
+	local source = ""
+
+	-- Try loading from vim args
+	if #vim.v.argf == 1 and vim.fn.isdirectory(vim.v.argf[1]) then
+        -- A single directory path was given to vim as argument
+		-- Get argf-based session name
+		sname = parse_path_sesh_name(vim.v.argf[1])
+		source = "argf"
+	elseif #vim.v.argf == 0 then
+        -- Vim was opened with no arguments
+		-- Get CWD-based session name
+		sname = parse_path_sesh_name(vim.fn.getcwd())
+		source = "CWD"
+	end
+
+	-- If session name is detected then load it automatically
+	if sname ~= "" and sesh.detected[sname] ~= nil then
+		vim.notify("Found session from " .. source .. ", attempting to load...", vim.log.levels.INFO)
+		sesh.read(sname)
+	end
+end
+
+vim.schedule(try_load_sesh)
 
 -------------------------------------
 --
