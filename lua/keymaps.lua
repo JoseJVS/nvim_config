@@ -1,8 +1,8 @@
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<cr>", { desc = "Clear highlight" })
-vim.keymap.set("n", "<C-c>", "<Esc>", { desc = "Additional escape" })
-vim.keymap.set("n", "<C-c>", "<cmd>nohlsearch<cr>", { desc = "Additional escape" })
+vim.keymap.set("i", "<C-c>", "<Esc>", { desc = "Additional escape" })
+vim.keymap.set("n", "<C-c>", "<cmd>nohlsearch<cr>", { desc = "Clear highlight" })
 
 -- TIP: Disable arrow keys in normal mode
 vim.keymap.set("n", "<left>", "<cmd>echo 'Use h to move!!'<cr>")
@@ -42,6 +42,7 @@ vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "[S]plit window [H]orizonta
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "[S]plits make [E]qual size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<cr>", { desc = "[S]plits [C]lose current" })
 
+-- Easier quit to avoid additional close for file tree
 vim.keymap.set("n", "<leader><Esc>", "<cmd>qa<cr>", { desc = "Quit" })
 
 -- Native undotree
