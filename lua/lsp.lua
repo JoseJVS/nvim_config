@@ -76,7 +76,12 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		)
 		vim.keymap.set("n", "<leader>lh", vim.lsp.buf.hover, { buffer = buf, desc = "[L]SP [H]over" })
 		vim.keymap.set("n", "<leader>lH", vim.lsp.buf.signature_help, { buffer = buf, desc = "[L]SP signature [H]elp" })
-		vim.keymap.set("n", "<leader>lc", vim.lsp.codelens.run, { buffer = buf, desc = "[L]SP [C]ode lens" })
+		vim.keymap.set("n", "<leader>lc", function()
+			if not vim.lsp.codelens.is_enabled({ bufnr = buf }) then
+				vim.lsp.codelens.enable(true, { bufnr = buf })
+			end
+			vim.lsp.codelens.run()
+		end, { buffer = buf, desc = "[L]SP [C]ode lens" })
 		vim.keymap.set(
 			"n",
 			"<leader>ll",
