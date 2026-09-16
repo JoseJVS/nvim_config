@@ -13,6 +13,7 @@ Heavily inspired by:
 * fzf
 * lazygit
 * bat
+* treesitter-cli
 
 
 ## Installed packages
