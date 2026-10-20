@@ -43,7 +43,7 @@ vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "[S]plits make [E]qual size
 vim.keymap.set("n", "<leader>sx", "<cmd>close<cr>", { desc = "[S]plits [C]lose current" })
 
 -- Easier quit to avoid additional close for file tree
-vim.keymap.set("n", "<leader><Esc>", "<cmd>qa<cr>", { desc = "Quit" })
+vim.keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit" })
 
 -- Native undotree
 vim.cmd.packadd("nvim.undotree")
