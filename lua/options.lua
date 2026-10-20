@@ -6,7 +6,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.loader.enable()
 
 -- optionally enable 24-bit colour
-vim.opt.termguicolors = true
+vim.o.termguicolors = true
 
 -- Set <space> as the leader key
 -- See `:help mapleader`
@@ -40,24 +40,25 @@ vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.o.inccommand = "split"
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10 -- keep 10 lines above/below cursor
-vim.opt.sidescrolloff = 10 -- keep 10 lines to left/right of cursor
+vim.o.scrolloff = 10 -- keep 10 lines above/below cursor
+vim.o.sidescrolloff = 10 -- keep 10 lines to left/right of cursor
 
 -- Indentation settings
-vim.opt.tabstop = 4 -- tabwidth
-vim.opt.shiftwidth = 4 -- indent width
-vim.opt.softtabstop = 4 -- soft tab stop not tabs on tab/backspace
-vim.opt.expandtab = true -- use spaces instead of tabs
+vim.o.tabstop = 4 -- tabwidth
+vim.o.shiftwidth = 4 -- indent width
+vim.o.softtabstop = 4 -- soft tab stop not tabs on tab/backspace
+vim.o.expandtab = true -- use spaces instead of tabs
 
 -- Start with all folds open
-vim.opt.foldlevel = 99
-vim.opt.foldlevelstart = 99
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
 
-vim.opt.colorcolumn = "100" -- show a column at 100 position chars
-vim.opt.backspace = "indent,eol,start" -- better backspace behaviour
+vim.o.cursorcolumn = true -- color the column where the cursor is
+vim.o.colorcolumn = "100" -- show a column at 100 position chars
+vim.o.backspace = "indent,eol,start" -- better backspace behaviour
 vim.opt.iskeyword:append("-") -- include - in words
-vim.opt.selection = "inclusive" -- include last char in selection
-vim.opt.maxmempattern = 20000 -- increase max memory for pattern matching
+vim.o.selection = "inclusive" -- include last char in selection
+vim.o.maxmempattern = 20000 -- increase max memory for pattern matching
 
 -- Decrease update time (useful for CursorHold events)
 vim.o.updatetime = 500
