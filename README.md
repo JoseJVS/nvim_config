@@ -1,12 +1,13 @@
-# Minimal IDE-like Neovim config
+# Minimal IDE-like Neovim Config
 
 Heavily inspired by:
-* https://github.com/nvim-lua/kickstart.nvim
-* https://github.com/Sin-cy/nvim-scratch
-* https://github.com/radleylewis/nvim-lite
 
+* <https://github.com/nvim-lua/kickstart.nvim>
+* <https://github.com/Sin-cy/nvim-scratch>
+* <https://github.com/radleylewis/nvim-lite>
 
 ## Requirements
+
 * Neovim >= 0.12
 * ripgrep
 * fd-find
@@ -15,8 +16,8 @@ Heavily inspired by:
 * bat
 * treesitter-cli
 
-
 ## Installed packages
+
 * [which-key](https://github.com/folke/which-key.nvim)
 * [trouble](https://github.com/folke/trouble.nvim)
 * [snacks](https://github.com/folke/snacks.nvim)
@@ -31,6 +32,6 @@ Heavily inspired by:
 * [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)
 * [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
 
-
 ## TODOs
+
 DAP support
