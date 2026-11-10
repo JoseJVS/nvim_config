@@ -40,7 +40,10 @@ vim.keymap.set("n", "<leader>bu", bufr.unshow, { desc = "[B]uffers [U]nshow curr
 require("mini.cmdline").setup()
 
 -- Diff block manipulation
-require("mini.diff").setup()
+local diff = require("mini.diff")
+diff.setup()
+
+vim.keymap.set("n", "<leader>gd", diff.toggle_overlay, { desc = "[G]it [D]iff overlay" })
 
 -- Extra features for other Mini pluggins
 local extra = require("mini.extra")
