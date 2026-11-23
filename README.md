@@ -31,6 +31,7 @@ Heavily inspired by:
 * [mason](https://github.com/mason-org/mason.nvim)
 * [mason-lspconfig](https://github.com/mason-org/mason-lspconfig.nvim)
 * [mason-tool-installer](https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim)
+* _theme_: [dracula](https://github.com/Mofiqul/dracula.nvim)
 
 ## TODOs
 
